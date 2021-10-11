@@ -3,6 +3,7 @@ var http = require("http");
 var ip = require('ip');
 var os = require("os");
 
+// function that gets the system uptime in seconds and converts it to days, hours, minutes, and seconds.
 function getUptime() {
     serverTime = os.uptime();
     var d = Math.floor(serverTime / (3600*24));
@@ -15,7 +16,7 @@ function getUptime() {
     var sreturn = s > 0 ? s + (s == 1 ? " second, " : " seconds, ") : "";
     return dreturn + hreturn + mreturn + sreturn;
 }
-
+// if/else statement for website navigation
 var server = http.createServer(function(req, res){
     if (req.url === "/") {
         fs.readFile("./public/index.html", "UTF-8", function(err, body){
